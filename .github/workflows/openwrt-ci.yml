@@ -56,6 +56,11 @@ jobs:
           sudo -E apt-get -y autoremove --purge
           sudo -E apt-get clean
 
+        run: |
+          git remote add openwrt https://github.com/coolsnowwolf/lede.git
+          git pull openwrt master
+          git remote -v 
+
       - name: Update feeds
         run: |
           ./scripts/feeds update -a
